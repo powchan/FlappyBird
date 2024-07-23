@@ -181,7 +181,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 360,
+    "_orthoHeight": 425.9154929577465,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -520,6 +520,13 @@
     "speedY": 150,
     "initPositionX": -500,
     "speedMultiple": 1,
+    "testPrefab": {
+      "__uuid__": "a7a0c6e5-60e7-4bf1-b6f4-5c4b45199d0a",
+      "__expectedType__": "cc.Prefab"
+    },
+    "GameManagerNode": {
+      "__id__": 14
+    },
     "_id": "59vAPgpnZLRpxF6FMsTd0o"
   },
   {
