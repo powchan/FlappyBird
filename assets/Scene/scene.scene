@@ -602,7 +602,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "speedX": 10,
+    "speedX": 54.2,
     "pipe_num": 5,
     "pipe_interval": 250,
     "pipe_gap": 200,
@@ -619,7 +619,7 @@
     "playerNode": {
       "__id__": 8
     },
-    "startPipeIv": 100,
+    "startPipeIv": 250,
     "_id": "75vIzoNDZJ8KxTepCGaLH+"
   },
   {
