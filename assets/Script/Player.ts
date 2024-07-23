@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Input, input, EventKeyboard, KeyCode, Vec3, sp, EventTouch, Prefab,instantiate } from 'cc';
+import { _decorator, Component, Node, Input, input, EventKeyboard, KeyCode, Vec3, sp, EventTouch, Prefab, instantiate } from 'cc';
 import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
@@ -14,10 +14,7 @@ export class Player extends Component {
     public initPositionX: number = -500;
     @property
     public speedMultiple: number = 5;
-    @property({ type: Prefab })
-    public testPrefab: Prefab | null = null;
-    @property({ type: Node })
-    private GameManagerNode: Node | null = null;
+
 
     start() {
         this.node.setPosition(this.initPositionX, 0);
@@ -29,11 +26,9 @@ export class Player extends Component {
     }
 
     ifTouch(event: EventTouch) {
-        this.speedY += this.SPEED_ADD;
-        let temp = event.getUILocation();
-        let testNode = instantiate(this.testPrefab);
-        this.GameManagerNode.addChild(testNode);
-        testNode.setPosition(temp.x - 640, temp.y -360);
+        if (event != null) {
+            this.speedY += this.SPEED_ADD;
+        }
     }
 
     update(deltaTime: number) {
