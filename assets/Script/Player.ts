@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Input, input, EventKeyboard, KeyCode, Vec3, sp, EventTouch } from 'cc';
+import { _decorator, Component, Node, Input, input, EventKeyboard, KeyCode, Vec3, sp, EventTouch, Prefab,instantiate } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Player')
@@ -13,17 +13,22 @@ export class Player extends Component {
     public initPositionX: number = -500;
     @property
     public speedMultiple: number = 5;
+    @property({ type: Prefab })
+    public testPrefab: Prefab | null = null;
     start() {
         this.node.setPosition(this.initPositionX, 0);
-        input.on(Input.EventType.TOUCH_START, this.ifKeyBoard, this);
+        input.on(Input.EventType.TOUCH_START, this.ifTouch, this);
     }
 
     protected onDestroy(): void {
-        input.off(Input.EventType.TOUCH_START, this.ifKeyBoard, this);
+        input.off(Input.EventType.TOUCH_START, this.ifTouch, this);
     }
 
-    ifKeyBoard(event: EventTouch) {
+    ifTouch(event: EventTouch) {
         this.speedY += this.SPEED_ADD;
+        let temp = event.getLocation();
+        let testNode = instantiate(this.testPrefab);
+        testNode.setPosition(temp.x, temp.y);
     }
 
     update(deltaTime: number) {
